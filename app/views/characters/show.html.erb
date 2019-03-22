@@ -1,2 +1,79 @@
-<h1>Characters#show</h1>
-<p>Find me in app/views/characters/show.html.erb</p>
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @character['name'] %></h1></div>
+    <table class='table table-bordered'>
+    <tr>
+      <th>Name:</th>
+      <td><%=@character['name']%></td>
+    </tr>
+    <tr>
+      <th>Hight:</th>
+      <td><%=@character['hight']%></td>
+    </tr>
+    <tr>
+      <th>Mass:</th>
+      <td><%= @character['mass'] %>kg</td>
+    </tr>
+    <tr>
+      <th>Hair Color:</th>
+      <td><%=@character['hair_color']%></td>
+    </tr>
+     <tr>
+      <th>Skin Color:</th>
+      <td><%=@character['skin_color']%></td>
+    </tr>
+     <tr>
+      <th>Eye Color:</th>
+      <td><%=@character['eye_color']%></td>
+    </tr>
+    <tr>
+      <th>Specie:</th>
+      <td><%=@character['species']%></td>
+    </tr>
+  </table>
+    </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Films</h2></a>
+      <% if !@character['films'].empty? %>
+      <% @films.each do |film| %>
+      <% id = film['url'].split('/')[5] %>
+      <p><%= film['title'] %> <%= link_to 'Show', film_url(id) %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Films</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Starships</h2></a>
+      <% if !@character['starships'].empty? %>
+      <% @starships.each do |starship| %>
+      <% id = starship['url'].split('/')[5] %>
+      <p><%= starship['name'] %> <%= link_to 'Show', starship_url(id) %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Starships</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Vehicles</h2></a>
+      <% if !@character['vehicles'].empty? %>
+      <% @vehicles.each do |vehicle| %>
+      <% id = vehicle['url'].split('/')[5] %>
+      <p><%= vehicle['name'] %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Vehicles</a>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,11 @@ class FilmsController < ApplicationController
       id = star.split('/')[5]
       @starships.push(self.class.get("/starships/#{id}"))
     end
+    @planets = []
+    @film['planets'].each do |planet|
+      id = planet.split('/')[5]
+      @planets.push(self.class.get("/planets/#{id}"))
+    end
   end
 
   def index
