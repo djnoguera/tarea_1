@@ -1,12 +1,12 @@
 require 'httparty'
 
-class StarshipsController < ApplicationController
+class SpeciesController < ApplicationController
   
   include HTTParty
   self.base_uri "https://swapi.co/api/"
   
   def show
-    @starship = self.class.get("/starships/#{params[:id]}")
+    @specie = self.class.get("/species/#{params[:id]}")
   end
 
   def index

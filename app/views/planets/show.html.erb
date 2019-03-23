@@ -1,2 +1,78 @@
-<h1>Planets#show</h1>
-<p>Find me in app/views/planets/show.html.erb</p>
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @planet['name'] %></h1></div>
+    <table class='table table-bordered'>
+    <tr>
+      <th>Name:</th>
+      <td><%=@planet['name']%></td>
+    </tr>
+    <tr>
+      <th>Rotation Period:</th>
+      <td><%=@planet['rotation_period']%></td>
+    </tr>
+    <tr>
+      <th>Orbital Period:</th>
+      <td><%= @planet['orbital_period'] %>kg</td>
+    </tr>
+    <tr>
+      <th>Diameter:</th>
+      <td><%=@planet['diameter']%></td>
+    </tr>
+     <tr>
+      <th>Climate:</th>
+      <td><%=@planet['climate']%></td>
+    </tr>
+     <tr>
+      <th>Gravity:</th>
+      <td><%=@planet['gravity']%></td>
+    </tr>
+    <tr>
+      <th>Terrain:</th>
+      <td><%=@planet['terrain']%></td>
+    </tr>
+    <tr>
+      <th>Surface Water:</th>
+      <td><%=@planet['surface_water']%></td>
+    </tr>
+    <tr>
+      <th>population:</th>
+      <td><%=@planet['population']%></td>
+    </tr>
+  </table>
+    </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Films</h2></a>
+      <% if !@planet['films'].empty? %>
+      <% @films.each do |film| %>
+      <% id = film['url'].split('/')[5] %>
+      <p><%= film['title'] %> <%= link_to 'Show', film_url(id) %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Films</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Residents</h2></a>
+      <% if !@planet['residents'].empty? %>
+      <% @residents.each do |resident| %>
+      <% id = resident['url'].split('/')[5] %>
+      <p><%= resident['name'] %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Residents</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div> <!--row-->
+
+<center>
+  <a href='/planets'><button class='btn btn-default'>Back to Planets</button></a>
+</center>
