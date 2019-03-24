@@ -62,7 +62,7 @@
       <% if !@planet['residents'].empty? %>
       <% @residents.each do |resident| %>
       <% id = resident['url'].split('/')[5] %>
-      <p><%= resident['name'] %></p>
+      <p><%= resident['name'] %> <%= link_to 'Show', character_url(id) %></p>
       <%end%>
       <% else %>
       <a href='#' class="list-group-item">No Residents</a>

@@ -15,7 +15,7 @@ class PlanetsController < ApplicationController
     @residents = []
     @planet['residents'].each do |resident|
       id = resident.split('/')[5]
-      @residents.push(self.class.get("/residents/#{id}"))
+      @residents.push(self.class.get("/people/#{id}"))
     end
   end
 

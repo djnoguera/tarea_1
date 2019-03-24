@@ -1,2 +1,83 @@
-<h1>Starships#show</h1>
-<p>Find me in app/views/starships/show.html.erb</p>
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @starship['name'] %></h1></div>
+  <table class='table table-bordered'>
+    <tr>
+      <th>Model:</th>
+      <td><%=@starship['model']%></td>
+    </tr>
+    <tr>
+      <th>Manufacturer:</th>
+      <td><%= @starship['manufacturer'] %>kg</td>
+    </tr>
+    <tr>
+      <th>Cost in credits:</th>
+      <td><%=@starship['cost_in_credits']%></td>
+    </tr>
+    <tr>
+      <th>Length:</th>
+      <td><%=@starship['length']%></td>
+    </tr>
+    <tr>
+      <th>Max atmosphering speed:</th>
+      <td><%=@starship['max_atmosphering_speed']%></td>
+    </tr>
+    <tr>
+      <th>Crew:</th>
+      <td><%=@starship['crew']%></td>
+    </tr>
+     <tr>
+      <th>Passengers:</th>
+      <td><%=@starship['passengers']%></td>
+    </tr>
+     <tr>
+      <th>Cargo Capacity:</th>
+      <td><%=@starship['cargo_capacity']%></td>
+    </tr>
+     <tr>
+      <th>Consumables:</th>
+      <td><%=@starship['consumables']%></td>
+    </tr>
+    <tr>
+      <th>Hyperdrive rating:</th>
+      <td><%=@starship['hyperdrive_rating']%></td>
+    </tr>
+    <tr>
+      <th>Starship class:</th>
+      <td><%=@starship['starship_class']%></td>
+    </tr>
+  </table>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Pilots</h2></a>
+      <% if !@starship['pilots'].empty? %>
+      <% @pilots.each do |pilot| %>
+      <% id = pilot['url'].split('/')[5] %>
+      <p><%= pilot['name'] %> <%= link_to 'Show', character_url(id) %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Starships</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Films</h2></a>
+      <% if !@starship['films'].empty? %>
+      <% @films.each do |film| %>
+      <% id = film['url'].split('/')[5] %>
+      <p><%= film['title'] %> <%= link_to 'Show', film_url(id) %></p>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Starships</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<center>
+  <a href='/films'><button class='btn btn-default'>Back to Films</button></a>
+</center>

@@ -7,7 +7,7 @@
     </tr>
     <tr>
       <th>Hight:</th>
-      <td><%=@character['hight']%></td>
+      <td><%=@character['height']%></td>
     </tr>
     <tr>
       <th>Mass:</th>
@@ -63,18 +63,7 @@
   </div>
 </div>
 
-<div class='row'>
-  <div class='col-md-4'>
-    <div class='list-group'>
-      <a href='#' class='list-group-item disabled'><h2>Vehicles</h2></a>
-      <% if !@character['vehicles'].empty? %>
-      <% @vehicles.each do |vehicle| %>
-      <% id = vehicle['url'].split('/')[5] %>
-      <p><%= vehicle['name'] %></p>
-      <%end%>
-      <% else %>
-      <a href='#' class="list-group-item">No Vehicles</a>
-      <% end %>
-    </div>
-  </div>
-</div>
+<center>
+  <a href='/films'><button class='btn btn-default'>Back to Characters</button></a>
+</center>
+
