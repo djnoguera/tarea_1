@@ -35,7 +35,7 @@
 <div class='row'>
   <div class='col-md-4'>
     <div class='list-group'>
-      <a href='#' class='list-group-item disabled'><h2>Films</h2></a>
+      <a href='/films' class='list-group-item disabled'><h2>Films</h2></a>
       <% if !@character['films'].empty? %>
       <% @films.each do |film| %>
       <% id = film['url'].split('/')[5] %>
@@ -50,7 +50,7 @@
 <div class='row'>
   <div class='col-md-4'>
     <div class='list-group'>
-      <a href='#' class='list-group-item disabled'><h2>Starships</h2></a>
+      <a href='/starships' class='list-group-item disabled'><h2>Starships</h2></a>
       <% if !@character['starships'].empty? %>
       <% @starships.each do |starship| %>
       <% id = starship['url'].split('/')[5] %>
@@ -64,6 +64,6 @@
 </div>
 
 <center>
-  <a href='/films'><button class='btn btn-default'>Back to Characters</button></a>
+  <a href='/characters'><button class='btn btn-default'>Back to Characters</button></a>
 </center>
 

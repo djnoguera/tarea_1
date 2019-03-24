@@ -20,5 +20,6 @@ class StarshipsController < ApplicationController
   end
 
   def index
+     @starships = self.class.get("/starships/")['results']
   end
 end

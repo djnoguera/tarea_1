@@ -1,2 +1,32 @@
-<h1>Characters#index</h1>
-<p>Find me in app/views/characters/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Characters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Birth year</th>
+      <th>Gender</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characters.each do |char| %>
+      <% id = char['url'].split('/')[5] %>
+    
+      <tr>
+        <td><%= char['name'] %></td>
+        <td><%= char['birth_year'] %></td>
+        <td><%= char['gender'] %></td>
+        <td><%= link_to 'Show', character_url(id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

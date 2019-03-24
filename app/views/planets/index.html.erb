@@ -1,2 +1,32 @@
-<h1>Planets#index</h1>
-<p>Find me in app/views/planets/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Planets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Climate</th>
+      <th>Population</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planets.each do |planet| %>
+      <% id = planet['url'].split('/')[5] %>
+    
+      <tr>
+        <td><%= planet['name'] %></td>
+        <td><%= planet['climate'] %></td>
+        <td><%= planet['population'] %></td>
+        <td><%= link_to 'Show', planet_url(id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

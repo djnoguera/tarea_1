@@ -1,2 +1,30 @@
-<h1>Starships#index</h1>
-<p>Find me in app/views/starships/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Starships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Model</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @starships.each do |starship| %>
+      <% id = starship['url'].split('/')[5] %>
+    
+      <tr>
+        <td><%= starship['name'] %></td>
+        <td><%= starship['model'] %></td>
+        <td><%= link_to 'Show', starship_url(id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

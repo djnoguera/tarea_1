@@ -25,5 +25,6 @@ class CharactersController < ApplicationController
   end
 
   def index
+    @characters = self.class.get("/people/")['results']
   end
 end
