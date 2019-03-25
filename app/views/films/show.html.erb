@@ -1,4 +1,31 @@
-<div class='panel panel-default'>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/films">Films <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/characters">Characters <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/planets">Planets <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/starships">Starships <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class='panel panel-default container-fluid'>
   <div class="panel-heading"><h1 class='text-center'><%= @film['title'] %></h1></div>
   <table class='table table-bordered'>
     <tr>
@@ -23,55 +50,50 @@
      <p><%= @film['opening_crawl'] %></p>
    </div>
 </div>
-<div class='row'>
-  <div class='col-md-4'>
-    <div class='list-group'>
-      <a href='/characters' class='list-group-item disabled'><h2>Characters</h2></a>
-      <% if !@film['characters'].empty? %>
-      <% @characters.each do |character| %>
-      <% id = character['url'].split('/')[5] %>
-      <p><%= character['name'] %> <%= link_to 'Show', character_url(id) %></p>
-       
-      <%end%>
-      <% else %>
-      <a href='#' class="list-group-item">No Starships</a>
-      <% end %>
+<div class ="container-fluid">
+  <div class = "row">
+    <div class='col-md-4'>
+      <div class='list-group list-group-flush'>
+        <a href='/characters' class='list-group-item '><h2>Characters</h2></a>
+        <% if !@film['characters'].empty? %>
+        <% @characters.each do |character| %>
+        <% id = character['url'].split('/')[5] %>
+        <p><%= character['name'] %> <%= link_to 'Show', character_url(id) %></p>
+        <%end%>
+        <% else %>
+        <a  class="list-group-item">No Starships</a>
+        <% end %>
+      </div>
     </div>
-  </div>
-</div>
-<div class='row'>
-  <div class='col-md-4'>
-    <div class='list-group'>
-      <a href='/planets' class='list-group-item disabled'><h2>Planets</h2></a>
-      <% if !@film['planets'].empty? %>
-      <% @planets.each do |planet| %>
-      <% id = planet['url'].split('/')[5] %>
-      <p><%= planet['name'] %> <%= link_to 'Show', planet_url(id) %></p>
-      <%end%>
-      <% else %>
-      <a href='#' class="list-group-item">No Planets</a>
-      <% end %>
+    <div class='col-md-4'>
+      <div class='list-group list-group-flush'>
+         <a href='/planets' class='list-group-item'><h2>Planets</h2></a>
+          <% if !@film['planets'].empty? %>
+          <% @planets.each do |planet| %>
+          <% id = planet['url'].split('/')[5] %>
+          <p><%= planet['name'] %> <%= link_to 'Show', planet_url(id) %></p>
+          <%end%>
+          <% else %>
+          <a class="list-group-item">No Planets</a>
+          <% end %>
+      </div>
     </div>
-  </div>
-</div>
-<div class='row'>
-  <div class='col-md-4'>
-    <div class='list-group'>
-      <a href='/starships' class='list-group-item disabled'><h2>Starships</h2></a>
-      <% if !@film['starships'].empty? %>
-      <% @starships.each do |starship| %>
-      <% id = starship['url'].split('/')[5] %>
-      <p><%= starship['name'] %> <%= link_to 'Show', starship_url(id) %></p>
-      <%end%>
-      <% else %>
-      <a href='#' class="list-group-item">No Starships</a>
-      <% end %>
+    <div class='col-md-4'>
+      <div class='list-group list-group-flush'>
+        <a href='/starships' class='list-group-item'><h2>Starships</h2></a>
+          <% if !@film['starships'].empty? %>
+          <% @starships.each do |starship| %>
+          <% id = starship['url'].split('/')[5] %>
+          <p><%= starship['name'] %> <%= link_to 'Show', starship_url(id) %></p>
+          <%end%>
+          <% else %>
+          <a  class="list-group-item">No Starships</a>
+          <% end %>
+      </div>
     </div>
-  </div>
+  </div> <!--row-->
 </div>
-
-</div> <!--row-->
 
 <center>
-  <a href='/films'><button class='btn btn-default'>Back to Films</button></a>
+  <a href='/films'><button class='btn btn-secondary btn-lg btn-block'>Back to Films</button></a>
 </center>

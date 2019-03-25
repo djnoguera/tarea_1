@@ -1,19 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/films">Films <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/characters">Characters <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/planets">Planets <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/starships">Starships <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 <p id="notice"><%= notice %></p>
 
 <h1>Films</h1>
 
-<table>
-  <thead>
+<table class="table table-hover">
+  <thead class="black white-text">
     <tr>
-      <th>Title</th>
-      <th>Release date</th>
-      <th>Director</th>
-      <th>Producer</th>
-      <th>Episode</th>
-      
-
-      
-      <th colspan="3"></th>
+      <th scope="col">Title</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Director</th>
+       <th scope="col">Producer</th>
+      <th scope="col">Episode</th>
     </tr>
   </thead>
 
@@ -21,7 +44,7 @@
     <% @films.each do |film| %>
       <% id = film['url'].split('/')[5] %>
     
-      <tr>
+      <tr class='clickable-row' data-href=film_url(id)>
         <td><%= film['title'] %></td>
         <td><%= film['release_date'] %></td>
         <td><%= film['director'] %></td>
@@ -33,6 +56,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 
