@@ -17,9 +17,16 @@ class PlanetsController < ApplicationController
       id = resident.split('/')[5]
       @residents.push(self.class.get("/people/#{id}"))
     end
+    @characters_all = self.class.get("/people/")['results']
+    @films_all = self.class.get("/films/")['results']
+    @planets_all = self.class.get("/planets/")['results']
+    @starships_all = self.class.get("/starships/")['results']
   end
 
   def index
+    @characters = self.class.get("/people/")['results']
+    @films = self.class.get("/films/")['results']
     @planets = self.class.get("/planets/")['results']
+    @starships = self.class.get("/starships/")['results']
   end
 end

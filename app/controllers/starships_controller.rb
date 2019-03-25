@@ -17,9 +17,16 @@ class StarshipsController < ApplicationController
       id = pilot.split('/')[5]
       @pilots.push(self.class.get("/people/#{id}"))
     end
+    @characters_all = self.class.get("/people/")['results']
+    @films_all = self.class.get("/films/")['results']
+    @planets_all = self.class.get("/planets/")['results']
+    @starships_all = self.class.get("/starships/")['results']
   end
 
   def index
-     @starships = self.class.get("/starships/")['results']
+    @characters = self.class.get("/people/")['results']
+    @films = self.class.get("/films/")['results']
+    @planets = self.class.get("/planets/")['results']
+    @starships = self.class.get("/starships/")['results']
   end
 end
